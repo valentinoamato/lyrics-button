@@ -5,15 +5,16 @@ function add_button() {
     let button = document.getElementById('lyrics-button');
     if (button) {
         return 'Button already added';
-    } 
-    button = document.createElement('button');
-    const ownerDiv = document.getElementById('owner'); 
-    button.textContent = "Lyrics"
-    button.id = "lyrics-button"
+    } else {
+        const ownerDiv = document.getElementById('owner');
+        button = document.createElement('button');
+        button.textContent = "Lyrics"
+        button.id = "lyrics-button"
 
-    ownerDiv.appendChild(button);
+        ownerDiv.appendChild(button);
 
-    return 'Button added';
+        return 'Button added';
+    }
 }
 
 // Listen for messages from the background script
