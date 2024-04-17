@@ -37,6 +37,8 @@ function add_button() {
             event.target.style.backgroundColor = "#272727";
         });
 
+        button.addEventListener("click", searchLyrics);
+
         ownerDiv.appendChild(button);
 
         return 'Button added';
@@ -52,3 +54,22 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse({ status: status});
     }
 });
+
+function searchLyrics() {
+    const title = getVideoTitle();
+    if (title) {
+        window.open("https://genius.com/search?q="+title,"_blank");
+    } else {
+        console.log('Video title not found');
+    }
+}
+
+function getVideoTitle() {
+    const parentDiv = document.getElementById("above-the-fold");
+    const elements = parentDiv.getElementsByTagName("h1")
+    if (elements.length) {
+        return elements.item(0).textContent.trim();
+    } else {
+        return false;
+    }
+}
