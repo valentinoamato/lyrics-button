@@ -8,8 +8,34 @@ function add_button() {
     } else {
         const ownerDiv = document.getElementById('owner');
         button = document.createElement('button');
-        button.textContent = "Lyrics"
-        button.id = "lyrics-button"
+        button.id = "lyrics-button";
+        button.textContent = "Lyrics";
+        button.title = "Search for lyrics";
+
+        button.style.padding = "0px";
+        button.style.paddingLeft = '16px';
+        button.style.paddingRight = '16px';
+        button.style.marginLeft = '8px';        
+        button.style.border = '0px';
+        button.style.backgroundColor = '#272727';
+        button.style.color = '#F1F1F1';
+        button.style.fontFamily = "Roboto, Arial, sans-serif";
+        button.style.fontSize = '14px';
+        button.style.lineHeight = '36px';
+        button.style.willChange = 'opacity';
+        button.style.whiteSpace = 'nowrap';
+        button.style.textTransform = 'none';
+        button.style.fontWeight = 500;
+        button.style.cursor = "pointer";
+        button.style.borderRadius = '18px';
+
+        button.addEventListener("mouseover", (event) => {
+            event.target.style.backgroundColor = "#3f3f3f";
+        });
+
+        button.addEventListener("mouseout", (event) => {
+            event.target.style.backgroundColor = "#272727";
+        });
 
         ownerDiv.appendChild(button);
 
