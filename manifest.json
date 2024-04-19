@@ -14,17 +14,20 @@
       "permissions": [
         "tabs",
         "<all_urls>",
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "icons": {
-      "96": "./icons/icon-96.png",
-      "48": "./icons/icon-48.png"
+      "48": "./icons/icon-48.png",
+      "96": "./icons/icon-96.png"
     },
     "browser_action":{
       "default_icon":{
-        "38":"icon-38.png",
-        "19":"icon-19.png"
-      }
+        "19":"./icons/icon-19.png",
+        "38":"./icons/icon-38.png"
+      },
+      "default_title": "Lyrics Button",
+      "default_popup": "popup.html"
      }
         
   }
