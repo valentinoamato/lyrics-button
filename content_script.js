@@ -55,13 +55,28 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
+async function setTask(task) {
+    await browser.storage.local.set({task});
+}
+
 function searchLyrics() {
-    const title = getVideoTitle();
-    if (title) {
-        window.open("https://genius.com/search?q="+title,"_blank");
-    } else {
-        console.log('Video title not found');
-    }
+    let value;
+    let gettingItem = browser.storage.local.get('value');
+    gettingItem.then(item => {
+        value = item['value'];
+        const title = getVideoTitle();
+        if (title) {
+            const url = "https://genius.com/search?q="+title;
+            if (value=='first') {
+                setTask(url);
+            }
+            window.open(url,"_blank");
+        } else {
+            console.log('Video title not found');
+        }
+    }).catch(error => {
+        console.log(error);
+    });
 }
 
 function getVideoTitle() {

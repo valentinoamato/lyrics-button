@@ -6,7 +6,11 @@
         {
          "matches":["*://www.youtube.com/*"],
          "js":["content_script.js"]
-        }
+        },
+        {
+          "matches":["*://genius.com/search?q=*"],
+          "js":["get_first.js"]
+         }
       ],
     "background":{
         "scripts":["background.js"]
